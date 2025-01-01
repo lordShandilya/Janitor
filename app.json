@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mess-app",
-    "slug": "mess-app",
+    "name": "janitor",
+    "slug": "janitor",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

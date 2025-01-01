@@ -1,20 +1,25 @@
-import { Text, View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
-import BlueBox from "@/components/BlueBox";
+import { LeaveButton, EntryButton } from "@/components/HomeScreenButtons"
 
 export default function Index() {
   return (
-    <>
+    <SafeAreaView>
     <View
       style={styles.titleContainer}
     >
       <ThemedText type="title">Hello Vishal</ThemedText>
-      <ThemedText>What yu gonna eat today ;)</ThemedText>
+      
     </View>
-    <BlueBox/>
+
+    <View style={styles.buttonContainer}>
+      <LeaveButton/>
+      <EntryButton/>
+    </View>
     
-    </>
+    
+    </SafeAreaView>
   );
 }
 
@@ -22,12 +27,19 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'column',
     gap: 8,
-    marginTop: 50,
+    marginTop: 70,
     marginLeft: 30
   },
   stepContainer: {
     gap: 8,
     marginBottom: 8,
   },
+  buttonContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 200,
+    gap: 10
+  }
   
 });
