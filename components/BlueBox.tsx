@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native"
 import { ThemedText } from "./ThemedText"
 
-export default function BlueBox() {
+export function BlueBox() {
     return (
         
         <View style={styles.box}>
@@ -21,10 +21,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#0066F6',
-        height: 225,
-        marginRight: 30,
-        marginLeft: 30,
-        marginTop: 50,
+        height: 180,
+        width: 382,
+        margin: 25,
         borderRadius: 10
 
     }
