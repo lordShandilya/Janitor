@@ -1,7 +1,11 @@
 import { StyleSheet, View } from "react-native"
 import { ThemedText } from "./ThemedText"
 
-export function BlueBox() {
+export type BlueBoxProps = {
+    amount ?: number
+}
+
+export function BlueBox({ amount }: BlueBoxProps) {
     return (
         
         <View style={styles.box}>
@@ -9,7 +13,7 @@ export function BlueBox() {
                 Coupons remaining
             </ThemedText>
             <ThemedText type="title" lightColor="#ECEDEE" darkColor="#ECEDEE">
-                Rs. 500
+                Rs. { amount }
             </ThemedText>
         </View>
     )

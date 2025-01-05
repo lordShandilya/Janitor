@@ -1,9 +1,13 @@
 import { SafeAreaView, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
 import { LeaveButton, EntryButton } from "@/components/HomeScreenButtons"
 
 export default function Index() {
+  const router = useRouter();
+  
+
   return (
     <SafeAreaView>
     <View
