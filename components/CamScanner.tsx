@@ -1,5 +1,5 @@
 import { BarcodeScanningResult, CameraType, CameraView, useCameraPermissions } from "expo-camera";
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { ThemedView } from "./ThemedView";
 import { ThemedText } from "./ThemedText";
 import { Alert, Button, Pressable, StyleSheet, type ViewProps } from "react-native";
@@ -62,7 +62,14 @@ export default function CamScanner({ style }: ViewProps) {
                 styles.container
             ]}
         >
-            <ThemedView style = {styles.tray}>
+            
+            <CameraView 
+                facing={facing}
+                style = {styles.camera}
+                onBarcodeScanned={onQrScan}
+                enableTorch={torch}
+            >
+                <ThemedView style = {styles.tray}>
                 <Pressable onPress={PickImage}>
                     <FontAwesome name="photo" size={20} color={iconColor} />
                 </Pressable>
@@ -72,12 +79,8 @@ export default function CamScanner({ style }: ViewProps) {
                 <Pressable onPress={() => {facing === 'back' ? setFacing('front') : setFacing('back')}}>
                     <Ionicons name="camera-reverse" size={24} color={iconColor} />
                 </Pressable>
-            </ThemedView>
-            <CameraView facing={facing}
-                style = {styles.camera}
-                onBarcodeScanned={onQrScan}
-                enableTorch={torch}
-            />
+                </ThemedView>
+            </CameraView>
             
         </ThemedView>
     )
@@ -95,21 +98,20 @@ const styles = StyleSheet.create({
         width: 330,
         height: 330,
         borderRadius: 20,
-        
+        alignItems: 'center',
+        marginTop: 100
     },
     tray: {
         flexDirection: 'row',
         height: 45,
-        width: 330,
+        width: 300,
         backgroundColor: '#0066F6',
-        marginBottom: 100,
+        marginTop: 25,
         borderRadius: 20,
         opacity: 0.6,
         justifyContent: 'center',
         alignItems: 'center',
         gap: 65
     },
-    button: {
 
-    }
 })

@@ -1,15 +1,24 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import CamScanner from "@/components/CamScanner";
-import { StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import Entypo from '@expo/vector-icons/Entypo';
+import { useThemeColor } from "@/hooks/useThemedColors";
 
 
 
 
 
 export default function Scan() {
+    const iconColor = useThemeColor({dark: undefined, light: undefined}, 'icon');
+    const router = useRouter();
+
     return(
         <ThemedView style = {{flex: 1}}>
+            <Pressable onPress={() => router.back()} >
+                <Entypo name="cross" size={30} color={iconColor} style = {styles.backButton}/>
+            </Pressable>
             <CamScanner style = {styles.container}/>
 
             <ThemedView style = {styles.bottom}>
@@ -35,7 +44,13 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 40
     },
     container: {
-        marginTop: 100
+        marginTop: 100,
+        
+    },
+    backButton: {
+        margin: 30,
+        position: 'absolute'
+
     }
 })
 
