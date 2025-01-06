@@ -22,7 +22,7 @@ export function ThemedText({
     <Text
       style={[
         { color },
-          themedTypeStyle[type],
+        themedTypeStyle[type],
         style
       ]}
       {...rest}

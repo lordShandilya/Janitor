@@ -1,12 +1,12 @@
-import { SafeAreaView, Text, View } from "react-native";
+import { Alert, SafeAreaView, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
-import { LeaveButton, EntryButton } from "@/components/HomeScreenButtons"
+import { RectButton } from "@/components/RectButton"
 
 export default function Index() {
   const router = useRouter();
-  
+
 
   return (
     <SafeAreaView>
@@ -18,8 +18,8 @@ export default function Index() {
     </View>
 
     <View style={styles.buttonContainer}>
-      <LeaveButton/>
-      <EntryButton/>
+      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" onPress={() => Alert.alert('Pressed')}/>
+      <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000"/>
     </View>
     
     
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 200,
-    gap: 10
+    gap: 40
   }
   
 });
