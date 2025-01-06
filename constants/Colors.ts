@@ -1,4 +1,6 @@
 
+
+
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
@@ -20,3 +22,6 @@ export const Colors = {
     tabIconSelected: tintColorDark,
   },
 };
+
+export type ColorsPropsType = keyof typeof Colors.light
+
