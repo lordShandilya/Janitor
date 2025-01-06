@@ -15,8 +15,8 @@ This will contain short informal internal description of the whole project and t
 ## IconButton
     This component is of no use as of now and will be removed from the component directory
 
-## HomeScreenButtons
-    It contains all the home screen buttons and it is not of use for any other pages, it will be modified to make it of universal use.
+## RectButtons
+    It is to be used as rectangular buttons. 
 ## Header
     A header component will be implemented here that will be present througout the app
 
