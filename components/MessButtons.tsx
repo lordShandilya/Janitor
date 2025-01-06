@@ -20,7 +20,6 @@ export function RectButton({ type, darkcolor, lightcolor, ...rest }: RectButtonP
             type === 'pay' ? styles.paySelection : undefined,
             type === 'coupon' ? styles.couponSelection : undefined,
             type === 'bill' || type === 'leave' || type === 'menu' ? styles.bottomSelections : undefined,
-            type === 'bill' || type === 'leave' || type === 'menu' ? styles.bottomSelections : undefined,
             
         ]}
         {...rest}
@@ -29,9 +28,9 @@ export function RectButton({ type, darkcolor, lightcolor, ...rest }: RectButtonP
                 
                 {type === 'leave' && <ThemedText type="default">Apply for leave in mess</ThemedText>}
                 {type === 'menu' && <ThemedText type="default">Know today's menu</ThemedText>}
-                {type === 'bill' && <ThemedText type="default">Check your monthly bill</ThemedText>}
+                {type === 'bill' && <ThemedText type="default">upCheck your monthly bill</ThemedText>}
                 {type === 'pay' && <ThemedText type="default">Pay</ThemedText>}
-                {type === 'coupon' && <ThemedText type="default">Add coupons</ThemedText>}
+                {type === 'coupon' && <ThemedText type="default">Add coons</ThemedText>}
                 
                 {type === 'pay' || type === 'coupon' ? undefined : <AntDesign name="right" size={16} color={iconColor} />}
             </ThemedView>
