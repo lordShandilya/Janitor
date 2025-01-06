@@ -2,6 +2,8 @@ import { View, type ViewProps } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemedColors';
 
+// This component works the same as themedtext, except it dynamically changes the background color based on the user theme.
+
 export type ThemedViewProps = ViewProps & {
   lightColor?: string;
   darkColor?: string;

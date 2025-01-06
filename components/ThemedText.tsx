@@ -1,12 +1,12 @@
 import { useThemeColor } from "@/hooks/useThemedColors";
 import { Text, type TextProps, StyleSheet } from "react-native";
 
-
+// This component dynamically selects the text color based on the user default theme.
 
 export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: keyof typeof themedTypeStyle;
+  lightColor?: string; // You can manually pass a color that you want to be rendered when light theme else pass undefined
+  darkColor?: string; // You can manually pass a color that you want to be rendered when dark theme else pass undefined
+  type?: keyof typeof themedTypeStyle; // Choose a type from the given types in themedTypeStyle.
 }
 
 export function ThemedText({
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 const themedTypeStyle = {
   default : styles.default,
   title : styles.title,
-    defaultSemiBold : styles.defaultSemiBold,
-    subtitle : styles.subtitle,
-    link: styles.link,
+  defaultSemiBold : styles.defaultSemiBold,
+  subtitle : styles.subtitle,
+  link: styles.link,
 }
