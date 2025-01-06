@@ -13,7 +13,7 @@ export default function CamScanner({ style }: ViewProps) {
     const [permission, requestPermission] = useCameraPermissions();
     const [facing, setFacing] = useState<CameraType>('back');
     const [torch, setTorch] = useState<boolean>(false);
-    const iconColor = useThemeColor({light: undefined, dark: undefined}, 'icon');
+    const iconColor = '#FFFFFF';
 
 
     const PickImage = async () => {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#0066F6',
         marginTop: 25,
         borderRadius: 20,
-        opacity: 0.6,
+        opacity: 0.4,
         justifyContent: 'center',
         alignItems: 'center',
         gap: 65
