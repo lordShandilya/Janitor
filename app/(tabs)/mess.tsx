@@ -27,7 +27,7 @@ export default function Mess() {
                     tag="Add coupons"
                     style = {styles.colouredButton}
                     backgroundColor="#36C4A2"
-                    onPress={() => Alert.alert('portal under development')}
+                    onPress={() => router.push('/(tabs)/addcoupons')}
                 />
             </ThemedView>
             <ThemedView style = {styles.lowerSection}>
@@ -42,7 +42,7 @@ export default function Mess() {
                     tag="Menu"
                     style = {styles.colourlessButton}
                     children = {<AntDesign name="right" size={16} color={iconColor} />}
-                    onPress={() => Alert.alert('portal under development')}
+                    onPress={() => router.push('/(tabs)/menu')}
                 />
                 <RectButton 
                     tag="Check Bill"

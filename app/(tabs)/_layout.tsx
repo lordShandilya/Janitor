@@ -1,6 +1,7 @@
 import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 
 export default function TabLayout() {
@@ -28,12 +29,26 @@ export default function TabLayout() {
       <Tabs.Screen
         name = "menu"
         options={{
-          title: "Menu",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="list-alt" color={color} />
+          href: null,
+          tabBarStyle: {display: 'none'}
         }}
       />
       <Tabs.Screen
         name = "scan"
+        options={{
+          href: null,
+          tabBarStyle: {display: 'none'}
+        }}
+      />
+      <Tabs.Screen
+        name = "profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="face-man-profile" size={24} color={ color } />
+        }}
+      />
+      <Tabs.Screen
+        name = "addcoupons"
         options={{
           href: null,
           tabBarStyle: {display: 'none'}
