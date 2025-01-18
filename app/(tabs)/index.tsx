@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
 import { RectButton } from "@/components/RectButton";
 import { ThemedView } from "@/components/ThemedView";
-import { GestureDetector, GestureHandlerRootView, Gesture, NativeViewGestureHandler } from "react-native-gesture-handler";
+import { GestureDetector, Gesture } from "react-native-gesture-handler";
 
 export default function Index() {
   const router = useRouter();
@@ -20,7 +20,7 @@ export default function Index() {
     </ThemedView>
 
     <ThemedView style={styles.buttonContainer}>
-      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} onPress={() => Alert.alert('Pressed')}/>
+      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} onPress={() => router.push('/(tabs)/scan')}/>
       <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button}/>
     </ThemedView>
     </ThemedView>
