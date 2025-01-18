@@ -1,5 +1,5 @@
 import { BackButton } from "@/components/BackButton";
-import { PriceInputField } from "@/components/PriceInputFiled";
+import { PriceInputField } from "@/components/PriceInputField";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { router } from "expo-router";
