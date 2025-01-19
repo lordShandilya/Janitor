@@ -1,4 +1,4 @@
-import { Alert, SafeAreaView, StyleSheet, View } from "react-native"
+import { Alert, SafeAreaView, StyleSheet, View, Text } from "react-native"
 import { useRouter } from "expo-router"
 import { RectButton } from "@/components/RectButton"
 import { BlueBox } from "@/components/BlueBox"
