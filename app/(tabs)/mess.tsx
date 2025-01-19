@@ -21,13 +21,13 @@ export default function Mess() {
                     tag="Pay"
                     style = {styles.colouredButton}
                     backgroundColor="#FD9101"
-                    onPress={() => router.push('/(tabs)/scan')}
+                    route={() => router.push('/(tabs)/scan')}
                 />
                 <RectButton 
                     tag="Add coupons"
                     style = {styles.colouredButton}
                     backgroundColor="#36C4A2"
-                    onPress={() => router.push('/(tabs)/addcoupons')}
+                    route={() => router.push('/(tabs)/addcoupons')}
                 />
             </ThemedView>
             <ThemedView style = {styles.lowerSection}>
@@ -36,19 +36,19 @@ export default function Mess() {
                     tag="Apply for leave in mess"
                     style = {styles.colourlessButton}
                     children = {<AntDesign name="right" size={16} color={iconColor} />}
-                    onPress={() => Alert.alert('portal under development')}
+                    route={() => Alert.alert('portal under development')}
                 />
                 <RectButton 
                     tag="Menu"
                     style = {styles.colourlessButton}
                     children = {<AntDesign name="right" size={16} color={iconColor} />}
-                    onPress={() => router.push('/(tabs)/menu')}
+                    route={() => router.push('/(tabs)/menu')}
                 />
                 <RectButton 
                     tag="Check Bill"
                     style = {styles.colourlessButton}
                     children = {<AntDesign name="right" size={16} color={iconColor} />}
-                    onPress={() => Alert.alert('portal under development')}
+                    route={() => Alert.alert('portal under development')}
                 />
                 
             </ThemedView>
@@ -81,11 +81,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(255, 255, 255, 0.2)',
         borderColor: 'rgba(255, 255, 255, 0.4)',
         borderWidth: 1,
-        // shadowColor: '#000',
-        // shadowOffset: { width: 0, height: 4},
-        // shadowOpacity: 0.3,
-        // shadowRadius: 4,
-        // elevation: 6,
         backdropFilter: 'blur(20px)',
         overflow: 'hidden'
     }

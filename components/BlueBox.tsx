@@ -5,10 +5,10 @@ export type BlueBoxProps = ViewProps & {
     amount ?: number,
 }
 
-export function BlueBox({ amount }: BlueBoxProps) {
+export function BlueBox({ amount, style }: BlueBoxProps) {
     return (
         
-        <View style={styles.box}>
+        <View style={[styles.box, style]}>
             <ThemedText type="default" lightColor="#ECEDEE" darkColor="#ECEDEE">
                 Coupons remaining
             </ThemedText>

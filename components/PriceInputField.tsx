@@ -23,7 +23,7 @@ export function PriceInputField() {
                 clearInterval(interval);
                 }
 
-            }, 100);
+            }, 500);
 
             return () => clearInterval(interval);
         }, [])

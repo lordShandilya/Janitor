@@ -9,7 +9,7 @@ import { GestureDetector, Gesture } from "react-native-gesture-handler";
 export default function Index() {
   const router = useRouter();
 
- 
+
   return (
     <ThemedView style = {{flex: 1}}>
     <ThemedView
@@ -20,8 +20,8 @@ export default function Index() {
     </ThemedView>
 
     <ThemedView style={styles.buttonContainer}>
-      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} onPress={() => router.push('/(tabs)/scan')}/>
-      <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button}/>
+      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} route={() => router.push('/(tabs)/scan')}/>
+      <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
     </ThemedView>
     </ThemedView>
    
