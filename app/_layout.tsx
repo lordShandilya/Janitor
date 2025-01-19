@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import { useColorScheme } from "react-native";
@@ -9,8 +10,11 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView>
     <ThemeProvider value={colorScheme === 'dark'? DarkTheme:DefaultTheme}>
-      <Stack >
-       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack screenOptions={{
+        gestureEnabled: true,
+        animation: "fade_from_bottom"
+      }}>
+       <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
       </Stack>;
     </ThemeProvider>
     </GestureHandlerRootView>

@@ -10,6 +10,7 @@ export default function Profile() {
                 style={styles.header}
             />
             <ProfilePicField style = {styles.profilepic}/>
+
         </ThemedView>
     )
 }
@@ -27,7 +28,6 @@ const styles = StyleSheet.create({
     profilepic: {
         position: 'absolute',
         zIndex: 2,
-    
     }
 
 })
