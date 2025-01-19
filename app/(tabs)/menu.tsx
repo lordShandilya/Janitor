@@ -1,5 +1,6 @@
 import { ThemedText } from "@/components/ThemedText"
 import { ThemedView } from "@/components/ThemedView"
+<<<<<<< HEAD
 // import { StyleSheet  } from "react-native"
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from "react-native"
 import DropDown from "@/components/DropDown"
@@ -133,10 +134,20 @@ export default function Menu() {
       </TouchableOpacity>
 
         </View>
+=======
+import { StyleSheet, View } from "react-native"
+
+export default function Menu() {
+    return ( 
+        <ThemedView style={styles.Container}>
+            <ThemedText type="default">Under development...</ThemedText>
+        </ThemedView>
+>>>>>>> 6981512ef95c405af2d6c2e3c508ecbe0b38ee6f
     )
 }
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
 
     container: {
         width: 1000,
@@ -144,4 +155,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
 
+=======
+    Container: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+    },
+>>>>>>> 6981512ef95c405af2d6c2e3c508ecbe0b38ee6f
 })

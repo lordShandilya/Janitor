@@ -2,28 +2,29 @@ import { Alert, SafeAreaView, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
-import { RectButton } from "@/components/RectButton"
+import { RectButton } from "@/components/RectButton";
+import { ThemedView } from "@/components/ThemedView";
+import { GestureDetector, Gesture } from "react-native-gesture-handler";
 
 export default function Index() {
   const router = useRouter();
 
 
   return (
-    <SafeAreaView>
-    <View
+    <ThemedView style = {{flex: 1}}>
+    <ThemedView
       style={styles.titleContainer}
     >
       <ThemedText type="title">Hello Vishal</ThemedText>
       
-    </View>
+    </ThemedView>
 
-    <View style={styles.buttonContainer}>
-      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" onPress={() => Alert.alert('Pressed')}/>
-      <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000"/>
-    </View>
-    
-    
-    </SafeAreaView>
+    <ThemedView style={styles.buttonContainer}>
+      <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} route={() => router.push('/(tabs)/scan')}/>
+      <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
+    </ThemedView>
+    </ThemedView>
+   
   );
 }
 
@@ -44,6 +45,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 200,
     gap: 40
+  },
+  button: {
+    width: 250,
+    height: 40,
+    borderRadius: 10,
   }
   
 });

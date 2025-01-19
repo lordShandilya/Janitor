@@ -11,8 +11,8 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     header: {
-        height: 35,
-        width: 'auto',
+        height: 455,
+        width: 418,
 
     }
 })

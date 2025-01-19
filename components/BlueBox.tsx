@@ -1,14 +1,14 @@
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, View, type ViewProps } from "react-native"
 import { ThemedText } from "./ThemedText"
 
-export type BlueBoxProps = {
-    amount ?: number
+export type BlueBoxProps = ViewProps & {
+    amount ?: number,
 }
 
-export function BlueBox({ amount }: BlueBoxProps) {
+export function BlueBox({ amount, style }: BlueBoxProps) {
     return (
         
-        <View style={styles.box}>
+        <View style={[styles.box, style]}>
             <ThemedText type="default" lightColor="#ECEDEE" darkColor="#ECEDEE">
                 Coupons remaining
             </ThemedText>
@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#0066F6',
         height: 180,
         width: 382,
-        margin: 25,
-        borderRadius: 10
+        marginTop: 100,
+        borderRadius: 10,
+        marginLeft: 25,
 
     }
 })
