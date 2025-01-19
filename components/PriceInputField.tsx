@@ -1,13 +1,34 @@
 import { View, Text, TextInput, StyleSheet, Alert, NativeSyntheticEvent, TextInputSubmitEditingEventData } from "react-native";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useFocusEffect } from "expo-router";
 
 export function PriceInputField() {
     const prefix = "\u20B9 ";
-    const [amount, setAmount] = useState(prefix+"0");
+    const [amount, setAmount] = useState('');
     const [balance, setBalance] = useState<number>(0);
+
+    useFocusEffect(
+        useCallback(() => {
+            setAmount('');
+            let index = 0;
+            const interval = setInterval(() => {
+                const def = prefix+'0';
+                if(index < def.length) {
+                    
+                    setAmount(prev => prev+def[index]);
+                    index++;
+                } else {
+                clearInterval(interval);
+                }
+
+            }, 100);
+
+            return () => clearInterval(interval);
+        }, [])
+    );
+
     const handleChange = (newText: string) => {
         if(!newText.startsWith(prefix)) {
             setAmount(prefix);
