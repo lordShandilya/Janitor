@@ -3,6 +3,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { useThemeColor } from "@/hooks/useThemedColors";
+import { Link } from "expo-router";
 
 export type RectButtonProps = PressableProps & {
     type?: 'pay' | 'coupon' | 'leave' | 'menu' | 'bill';
@@ -24,14 +25,16 @@ export function RectButton({ type, darkcolor, lightcolor, ...rest }: RectButtonP
         ]}
         {...rest}
         >
+
+            {/* this clearly needs a array of map  */}
             <ThemedView darkColor={type === 'pay' || type === 'coupon' ? ' #00000000': undefined} style = {styles.viewStyle}>
                 
                 {type === 'leave' && <ThemedText type="default">Apply for leave in mess</ThemedText>}
-                {type === 'menu' && <ThemedText type="default">Know today's menu</ThemedText>}
+                {type === 'menu' && <ThemedText type="default"><Link href={"/(tabs)/menu"}>Know today's menu</Link></ThemedText>}
                 {type === 'bill' && <ThemedText type="default">upCheck your monthly bill</ThemedText>}
                 {type === 'pay' && <ThemedText type="default">Pay</ThemedText>}
-                {type === 'coupon' && <ThemedText type="default">Add coons</ThemedText>}
-                
+                {type === 'coupon' && <ThemedText type="default">Add coupons</ThemedText>}
+                {/* <AntDesign name="right" size={16} color={iconColor} /> */}
                 {type === 'pay' || type === 'coupon' ? undefined : <AntDesign name="right" size={16} color={iconColor} />}
             </ThemedView>
         </Pressable>
