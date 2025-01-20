@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MenuScroller from "@/components/MenuScrolller";
 import DropDown from "@/components/DropDown";
-o
+
 export default function Menu() {
 
 

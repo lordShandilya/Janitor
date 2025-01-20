@@ -16,7 +16,7 @@ export default function Mess() {
             <View style = {styles.lowerSection}>
                 <ThemedText type="defaultSemiBold">Get all your mess information</ThemedText>
                 <RectButton type="leave" onPress={() => Alert.alert('portal under development')}/>
-                <RectButton type="menu" onPress={() => () => router.push('/(tabs)/menu')}/>
+                <RectButton type="menu" onPress={() => router.push('/(tabs)/menu')}/>
                 <RectButton type="bill" onPress={() => Alert.alert('portal under development')}/>
             </View>
         </SafeAreaView>
