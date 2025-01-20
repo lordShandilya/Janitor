@@ -32,7 +32,7 @@ export default function DropDown() {
     }
 
     return (
-        <View >
+        <View  >
 
             {/* <Text>Jai Mata Di</Text> */}
 
@@ -56,12 +56,14 @@ export default function DropDown() {
                 {/* Width of the below dropdown should be exactly equal to the Pressable */}
                
 
+                    <View className='absolute top-8 right-3'>
                     { visible && <Animated.View
-                        className="absolute mt-4 w-48 bg-white shadow-lg rounded-lg p-4"
+                        className=" w-48 z-10 rounded-lg p-4"
                         style={animatedStyle}
                     >
                         <DropDownMenu optionsList={optionsList} optionsHandler={setSelectedOption}/>
                     </Animated.View>}
+                    </View>
 
             </View>
             {/* 
