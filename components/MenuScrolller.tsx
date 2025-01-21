@@ -76,7 +76,7 @@ export default function MenuScroller({list}:{list:Array<string>}) {
         {/* Previous Button */}
         <TouchableOpacity
           onPress={() => scrollHorizontally(-80)}
-          className={`p-3 rounded-full ml-2 h-10 flex justify-center ${
+          className={`p-2 rounded-full ml-2 h-10 flex justify-center ${
             isAtStart ? "bg-gray-400 invisible" : "bg-blue-500"
           }`}
           disabled={isAtStart}
@@ -112,7 +112,7 @@ export default function MenuScroller({list}:{list:Array<string>}) {
         {/* Next Button */}
         <TouchableOpacity
           onPress={() => scrollHorizontally(80)}
-          className={`p-3 rounded-full ml-2 h-10 flex justify-center ${
+          className={`p-2 rounded-full ml-2 h-10 flex justify-center ${
             isAtEnd ? "bg-gray-400 invisible" : "bg-blue-500"
           }`}
           disabled={isAtEnd}
