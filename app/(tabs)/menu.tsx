@@ -3,9 +3,11 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MenuScroller from "@/components/MenuScrolller";
 import DropDown from "@/components/DropDown";
+import { BackButton } from "@/components/BackButton";
+import { useRouter } from "expo-router";
 
 export default function Menu() {
-
+  const router = useRouter();
 
   const breakfast = [
     "Aalu chana",
@@ -50,6 +52,8 @@ export default function Menu() {
   return (
     <View className="w-full bg-white h-full justify-center items-center">
       
+      <BackButton light="#0066F6" dark="#0066F6" onPress={() => router.back()} style={{marginLeft: 30, alignSelf: 'flex-start'}}/>
+
       <View className=" my-8 z-10"> 
 
         <DropDown/>
