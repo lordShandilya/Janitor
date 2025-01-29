@@ -5,7 +5,6 @@ import { StyleSheet, ImageBackground, StatusBar } from "react-native";
 
 export default function Profile() {
     return (
-        <>
         <ThemedView style={styles.container}>
             <ImageBackground
                 resizeMode="cover"
@@ -19,7 +18,6 @@ export default function Profile() {
             <ThemedText type="defaultSemiBold" style={styles.profileName}>youremail@domain.com | +01 234 567 789</ThemedText>
             
         </ThemedView>
-        </>
     );
 }
 
