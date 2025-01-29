@@ -9,7 +9,6 @@ import { GestureDetector, Gesture } from "react-native-gesture-handler";
 export default function Index() {
   const router = useRouter();
 
-
   return (
     <ThemedView style = {{flex: 1}}>
     <ThemedView
