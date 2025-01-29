@@ -1,6 +1,6 @@
 import { Alert, SafeAreaView, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter,Link } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
 import { RectButton } from "@/components/RectButton";
 import { ThemedView } from "@/components/ThemedView";
@@ -21,6 +21,7 @@ export default function Index() {
     <ThemedView style={styles.buttonContainer}>
       <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} route={() => router.push('/(tabs)/scan')}/>
       <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
+      <Link href="/(auth)/onboarding" className="text-primary">On Boarding Page</Link>
     </ThemedView>
     </ThemedView>
    
