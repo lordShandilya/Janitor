@@ -1,32 +1,39 @@
-import { Image, StyleSheet } from "react-native"
-import { ThemedView, ThemedViewProps } from "./ThemedView"
-import { useState } from "react"
+import { Image, StyleSheet } from "react-native";
+import { ThemedView, ThemedViewProps } from "./ThemedView";
+import { useState } from "react";
 
-export type ProfilePicFieldProps =ThemedViewProps & {
-    profile_pic?: string
-}
+export type ProfilePicFieldProps = ThemedViewProps & {
+    profile_pic?: string;
+};
 
-export function ProfilePicField({ profile_pic }: ProfilePicFieldProps) {
+export function ProfilePicField({ profile_pic, style }: ProfilePicFieldProps) {
     const [pfp, setPfp] = useState<string | undefined>(profile_pic);
 
-
-
     return (
-        <ThemedView style = {[
-            styles.container,
-            { backgroundImage: profile_pic }
-        ]}>
-        {/* <Image source={}/> */}
-
+        <ThemedView
+            style={[
+                styles.container,
+                style, // Merge external styles passed via `style` prop
+            ]}
+        >
+            {/* Optional: Add an Image if `profile_pic` exists */}
+            {pfp ? (
+                <Image
+                    resizeMode="contain"
+                    source={require('@/assets/images/panda.jpg')}
+                    style={StyleSheet.absoluteFillObject} // Fill the container
+                />
+            ) : null}
         </ThemedView>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         height: 150,
         width: 150,
-        borderRadius: 100,
-        backgroundColor: 'white'
-    }
-})
+        borderRadius: 75, // Correct circle radius (half of width/height)
+        backgroundColor: "white",
+        overflow: "hidden", // Prevents content overflow
+    },
+});
