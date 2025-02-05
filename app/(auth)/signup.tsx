@@ -28,7 +28,7 @@ const SignUp = () => {
       Alert.alert('Error', 'Phone number must be 10 digits.');
       return;
     }
-    router.push('/');
+    router.push('/enterdetails');
   };
   return (
     <SafeAreaView className=" bg-white h-full">
