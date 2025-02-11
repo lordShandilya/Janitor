@@ -3,11 +3,12 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect } from "expo-router";
+import { useJanitorStore } from "@/utils/Store";
 
 export function PriceInputField() {
     const prefix = "\u20B9 ";
     const [amount, setAmount] = useState('');
-    const [balance, setBalance] = useState<number>(0);
+    const increaseBalance = useJanitorStore(state => state.coupons.increment)
 
     useFocusEffect(
         useCallback(() => {
@@ -55,7 +56,7 @@ export function PriceInputField() {
             return;
         }
 
-        setBalance(prev => prev+added);
+        increaseBalance(added);
         setAmount(prefix+"0");
         Alert.alert(amount + " added to your coupons.");
     }
@@ -64,7 +65,6 @@ export function PriceInputField() {
 
     return (
         <ThemedView style={styles.rootContainer}>
-        <ThemedText type="defaultSemiBold">Remaining coupon balance: {prefix} {balance}</ThemedText>
         <ThemedView style={styles.container}>
             <ThemedText darkColor="#9BA1A6" lightColor="#9BA1A6" type="default" style = {styles.header}>Enter Amount</ThemedText>
             <TextInput 
@@ -83,7 +83,7 @@ export function PriceInputField() {
 
 const styles = StyleSheet.create({
     rootContainer: {
-        marginTop: 20
+        marginTop: 5
     },
     container: {
         marginTop: 50,

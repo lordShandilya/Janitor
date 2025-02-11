@@ -5,6 +5,7 @@ import { Pressable, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useThemeColor } from "@/hooks/useThemedColors";
+import { useJanitorStore } from "@/utils/Store";
 
 
 
@@ -14,11 +15,13 @@ export default function Scan() {
     const iconColor = useThemeColor({dark: undefined, light: undefined}, 'icon');
     const router = useRouter();
 
+
     return(
         <ThemedView style = {{flex: 1}}>
             <Pressable onPress={() => router.back()} >
                 <Entypo name="cross" size={30} color={iconColor} style = {styles.backButton}/>
             </Pressable>
+            
             <CamScanner style = {styles.container}/>
 
             <ThemedView style = {styles.bottom}>
@@ -51,6 +54,6 @@ const styles = StyleSheet.create({
         margin: 30,
         position: 'absolute'
 
-    }
+    },
 })
 
