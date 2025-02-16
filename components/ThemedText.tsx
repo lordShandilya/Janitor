@@ -6,6 +6,7 @@ import { Text, type TextProps, StyleSheet } from "react-native";
 export type ThemedTextProps = TextProps & {
   lightColor?: string; // You can manually pass a color that you want to be rendered when light theme else pass undefined
   darkColor?: string; // You can manually pass a color that you want to be rendered when dark theme else pass undefined
+  className?: string;
   type?: keyof typeof themedTypeStyle; // Choose a type from the given types in themedTypeStyle.
 }
 
@@ -14,6 +15,7 @@ export function ThemedText({
   lightColor,
   darkColor,
   type = 'default',
+  className,
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')

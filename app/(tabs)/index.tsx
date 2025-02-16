@@ -5,16 +5,18 @@ import { ThemedText } from "@/components/ThemedText";
 import { RectButton } from "@/components/RectButton";
 import { ThemedView } from "@/components/ThemedView";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
+import { useJanitorStore } from "@/utils/Store";
 
 export default function Index() {
   const router = useRouter();
+  const username = useJanitorStore(state => state.user.info.name)
 
   return (
     <ThemedView style = {{flex: 1}}>
     <ThemedView
       style={styles.titleContainer}
     >
-      <ThemedText type="title">Hello Vishal</ThemedText>
+      <ThemedText type="title">Hello {username}</ThemedText>
       
     </ThemedView>
 

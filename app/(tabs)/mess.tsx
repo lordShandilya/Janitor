@@ -1,21 +1,29 @@
 import { Alert, SafeAreaView, StyleSheet, View, Text } from "react-native"
 import { useRouter } from "expo-router"
 import { RectButton } from "@/components/RectButton"
-import { BlueBox } from "@/components/BlueBox"
 import { ThemedText } from "@/components/ThemedText"
 import { ThemedView } from "@/components/ThemedView"
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useThemeColor } from "@/hooks/useThemedColors"
+import { useJanitorStore } from "@/utils/Store"
 
 
 export default function Mess() {
     const router = useRouter();
     const iconColor = useThemeColor({ light: undefined, dark: undefined}, 'icon');
+    const amount = useJanitorStore(state => state.coupons.balance)
     
     return (
         <ThemedView style = {styles.container}>
-            <ThemedText type="title" style={{ position: 'absolute', margin: 40}}>Hello, Vishal</ThemedText>
-            <BlueBox amount={500} />
+           
+            <View style={[styles.box]}>
+            <ThemedText type="default" lightColor="#ECEDEE" darkColor="#ECEDEE" className="text-xl">
+                Coupons remaining
+            </ThemedText>
+            <ThemedText type="title" lightColor="#ECEDEE" darkColor="#ECEDEE">
+                Rs. { amount }
+            </ThemedText>
+        </View>
             <ThemedView style = {styles.upperSection}>
                 <RectButton 
                     tag="Pay"
@@ -88,5 +96,16 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         // justifyContent: 'center'
+    },
+    box: {
+        gap: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#0066F6',
+        height: 180,
+        width: 382,
+        marginTop: 75,
+        borderRadius: 10,
+
     }
 })
