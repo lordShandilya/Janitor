@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet,ScrollView, Text,View } from 'react-native';
-import { Redirect,router,Link, Stack } from 'expo-router';
+import { router } from 'expo-router';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from 'expo-image'; 
 import SignUpButtons from "@/components/SignUpButtons";
@@ -8,6 +8,7 @@ import SignUpButtons from "@/components/SignUpButtons";
 export default function App(){
     return(
         <SafeAreaView style={styles.container}>
+            <ScrollView className="w-full" contentContainerStyle = {{alignItems:'center'}}>
                     <Image  source={require("../../assets/images/welcome.gif")} 
                         style={styles.image} 
                         contentFit="contain"
@@ -15,7 +16,7 @@ export default function App(){
                     <Text className="text-3xl font-kbold mt-10">Welcome to MyApp</Text> 
                     <Text className="text-lg font-klight mt-5">The app for everyone</Text>      
 
-                    <View className="w-full px-4">
+                    <View className="w-full px-4 mt-12">
                         <SignUpButtons
                             title="CREATE YOUR ACCOUNT"
                             handlePress={()=>router.push('/signup')}    
@@ -25,13 +26,14 @@ export default function App(){
                         />
                         <SignUpButtons 
                             title="LOG INTO YOUR ACCOUNT"
-                            handlePress={()=>{router.push('/')}}    
+                            handlePress={()=>{router.push('/signin')}}    
                             containerStyles = "mt-3 border"
                             textStyles = "font-ksemibold"
                             opacity={0.3}
                         />
                     </View>
             <StatusBar style="auto"/>
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -49,4 +51,5 @@ const styles = StyleSheet.create({
         width: 300,
         height: 300,
     },
+    
   });
