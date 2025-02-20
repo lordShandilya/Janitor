@@ -53,7 +53,7 @@ export function RectButton({ tag, style, backgroundColor, darkColor, lightColor,
             {...rest}
         >
             
-            <ThemedText type="defaultSemiBold" darkColor={darkColor} lightColor={lightColor}>{ tag }</ThemedText>
+            <ThemedText type="defaultSemiBold" darkColor={'#001533'} lightColor={lightColor}>{ tag }</ThemedText>
             { children }
            
            

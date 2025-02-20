@@ -31,7 +31,7 @@ export default function RootLayout() {
   
   return (
     <GestureHandlerRootView>
-    <ThemeProvider value={colorScheme === 'dark'? DarkTheme:DefaultTheme}>
+    <ThemeProvider value={DefaultTheme}>
       <Stack screenOptions={{
         gestureEnabled: true,
         animation: "fade_from_bottom",

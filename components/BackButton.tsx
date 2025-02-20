@@ -9,7 +9,7 @@ export type BackButtonProps = PressableProps & {
 }
 
 export function BackButton({ size, dark, light, ...rest }: BackButtonProps) {
-    const color = useThemeColor({dark: dark, light: light}, 'icon');
+    const color = '#0066F6'
 
     return (
         <Pressable {...rest}>

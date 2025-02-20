@@ -64,20 +64,21 @@ export function PriceInputField() {
 
 
     return (
-        <ThemedView style={styles.rootContainer}>
-        <ThemedView style={styles.container}>
-            <ThemedText darkColor="#9BA1A6" lightColor="#9BA1A6" type="default" style = {styles.header}>Enter Amount</ThemedText>
+        <View style={styles.rootContainer}>
+        <View style={styles.container}>
+            <Text className="font-kextrabold text-3xl">Enter Amount</Text>
             <TextInput 
                 keyboardType="numeric"
                 style={styles.input}
                 value={amount}
                 onChangeText={handleChange}
                 onSubmitEditing={handleInput}
+                className="font-thin text-black-200"
             />
                 
             
-        </ThemedView>
-        </ThemedView>
+        </View>
+        </View>
     )
 }
 
@@ -99,6 +100,5 @@ const styles = StyleSheet.create({
     input: {
         fontSize: 30,
         gap: 20,
-        color: '#ECEDEE'
     }
 })

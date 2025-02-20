@@ -12,20 +12,20 @@ export default function Index() {
   const username = useJanitorStore(state => state.user.info.name)
 
   return (
-    <ThemedView style = {{flex: 1}}>
-    <ThemedView
+    <View style = {styles.container}>
+    <View
       style={styles.titleContainer}
     >
-      <ThemedText type="title">Hello {username}</ThemedText>
+      <Text className="font-kextrabold text-3xl">Hello {username}</Text>
       
-    </ThemedView>
+    </View>
 
-    <ThemedView style={styles.buttonContainer}>
+    <View style={styles.buttonContainer}>
       <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} route={() => router.push('/(tabs)/scan')}/>
       <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
       <Link href="/(auth)/onboarding" className="text-primary">On Boarding Page</Link>
-    </ThemedView>
-    </ThemedView>
+    </View>
+    </View>
    
   );
 }
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 8,
     marginTop: 70,
-    marginLeft: 30
+    transform: [{translateX: -80}]
   },
   stepContainer: {
     gap: 8,
@@ -52,6 +52,10 @@ const styles = StyleSheet.create({
     width: 250,
     height: 40,
     borderRadius: 10,
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center'
   }
   
 });

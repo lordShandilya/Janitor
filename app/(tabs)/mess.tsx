@@ -14,17 +14,17 @@ export default function Mess() {
     const amount = useJanitorStore(state => state.coupons.balance)
     
     return (
-        <ThemedView style = {styles.container}>
+        <View style = {styles.container}>
            
             <View style={[styles.box]}>
-            <ThemedText type="default" lightColor="#ECEDEE" darkColor="#ECEDEE" className="text-xl">
+            <Text className="font-kregular text-lg text-white mb-3">
                 Coupons remaining
-            </ThemedText>
+            </Text>
             <ThemedText type="title" lightColor="#ECEDEE" darkColor="#ECEDEE">
                 Rs. { amount }
             </ThemedText>
-        </View>
-            <ThemedView style = {styles.upperSection}>
+            </View>
+            <View style = {styles.upperSection}>
                 <RectButton 
                     tag="Pay"
                     style = {styles.colouredButton}
@@ -37,14 +37,15 @@ export default function Mess() {
                     backgroundColor="#36C4A2"
                     route={() => router.push('/(tabs)/addcoupons')}
                 />
-            </ThemedView>
-            <ThemedView style = {styles.lowerSection}>
-                <ThemedText type="defaultSemiBold">Get all your mess information</ThemedText>
+            </View>
+            <View style = {styles.lowerSection}>
+                <Text className="text-black text-xl font-kbold">Get all your mess information</Text>
                 <RectButton 
                     tag="Apply for leave in mess"
                     style = {styles.colourlessButton}
                     children = {<AntDesign name="right" size={16} color={iconColor} />}
                     route={() => Alert.alert('portal under development')}
+                    backgroundColor=""
                 />
                 <RectButton 
                     tag="Menu"
@@ -59,8 +60,8 @@ export default function Mess() {
                     route={() => Alert.alert('portal under development')}
                 />
                 
-            </ThemedView>
-        </ThemedView>
+            </View>
+        </View>
     )
 }
 
@@ -86,8 +87,8 @@ const styles = StyleSheet.create({
         height: 66,
         gap: 30,
         borderRadius: 12,
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        borderColor: 'rgba(255, 255, 255, 0.4)',
+        backgroundColor: 'white',
+        borderColor: '#C9C9C9',
         borderWidth: 1,
         backdropFilter: 'blur(20px)',
         overflow: 'hidden'
