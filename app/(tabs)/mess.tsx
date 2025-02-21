@@ -14,7 +14,8 @@ export default function Mess() {
     const amount = useJanitorStore(state => state.coupons.balance)
     
     return (
-        <View style = {styles.container}>
+        
+        <SafeAreaView style = {styles.container}>
            
             <View style={[styles.box]}>
             <Text className="font-kregular text-lg text-white mb-3">
@@ -61,7 +62,8 @@ export default function Mess() {
                 />
                 
             </View>
-        </View>
+        
+        </SafeAreaView>
     )
 }
 

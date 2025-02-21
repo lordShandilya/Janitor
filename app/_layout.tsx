@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { SplashScreen,Stack } from "expo-router";
 import { useColorScheme } from "react-native";
@@ -6,6 +5,7 @@ import "@/global.css"
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useFonts } from 'expo-font';
 import { useEffect } from "react";
+import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -39,6 +39,7 @@ export default function RootLayout() {
       }}>
        <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
       </Stack>;
+      <StatusBar style='light'/>
     </ThemeProvider>
     </GestureHandlerRootView>
   )

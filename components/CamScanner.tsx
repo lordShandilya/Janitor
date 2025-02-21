@@ -6,10 +6,11 @@ import { Alert, Button, Pressable, StyleSheet, type ViewProps } from "react-nati
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useThemeColor } from "@/hooks/useThemedColors";
 import * as ImagePicker from "expo-image-picker";
 import { useFocusEffect } from "expo-router";
+import { View, Text } from "react-native";
 export default function CamScanner({ style }: ViewProps) {
+
     const [permission, requestPermission] = useCameraPermissions();
     const [facing, setFacing] = useState<CameraType>('back');
     const [torch, setTorch] = useState<boolean>(false);
@@ -37,19 +38,19 @@ export default function CamScanner({ style }: ViewProps) {
     );
 
     if(!permission) {
-        return <ThemedView style = {styles.container}>
-            <ThemedText>Loading...</ThemedText>
-        </ThemedView>
+        return <View style = {styles.container}>
+            <Text>Loading...</Text>
+        </View>
     }
 
     if(!permission.granted) {
         return (
-            <ThemedView style = {styles.container}>
-                <ThemedText>
+            <View style = {styles.container}>
+                <Text>
                     We need your permission to access the camera.
-                </ThemedText>
+                </Text>
                 <Button onPress={requestPermission} title="grant permission"/>
-            </ThemedView>
+            </View>
         )
     }
 
@@ -58,7 +59,7 @@ export default function CamScanner({ style }: ViewProps) {
     }
 
     return (
-        <ThemedView 
+        <View 
             style = {[
                 style,
                 styles.container
@@ -87,7 +88,7 @@ export default function CamScanner({ style }: ViewProps) {
                 </ThemedView>
             </CameraView>
             
-        </ThemedView>
+        </View>
     )
 
 
