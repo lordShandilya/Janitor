@@ -8,6 +8,7 @@ export type ThemedTextProps = TextProps & {
   darkColor?: string; // You can manually pass a color that you want to be rendered when dark theme else pass undefined
   className?: string;
   type?: keyof typeof themedTypeStyle; // Choose a type from the given types in themedTypeStyle.
+  classNative?: string
 }
 
 export function ThemedText({
@@ -22,6 +23,7 @@ export function ThemedText({
 
   return (
     <Text
+      className={className}
       style={[
         { color },
         themedTypeStyle[type],

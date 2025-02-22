@@ -12,7 +12,7 @@ export default function App(){
                     <Image  source={require("../../assets/images/welcome.gif")} 
                         style={styles.image} 
                         contentFit="contain"
-                     />
+                    />
                     <Text className="text-3xl font-kbold mt-10">Welcome to MyApp</Text> 
                     <Text className="text-lg font-klight mt-5">The app for everyone</Text>      
 
