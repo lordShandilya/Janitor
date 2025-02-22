@@ -13,8 +13,8 @@ export default function Mess() {
     const iconColor = useThemeColor({ light: undefined, dark: undefined}, 'icon');
     
     return (
-        <ThemedView style = {{flex: 1}}>
-            <ThemedText type="title" style={{flex: 1, position: 'absolute', margin: 40}}>Hello, Vishal</ThemedText>
+        <ThemedView style = {styles.container}>
+            <ThemedText type="title" style={{ position: 'absolute', margin: 40}}>Hello, Vishal</ThemedText>
             <BlueBox amount={500} />
             <ThemedView style = {styles.upperSection}>
                 <RectButton 
@@ -83,5 +83,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backdropFilter: 'blur(20px)',
         overflow: 'hidden'
+    },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        // justifyContent: 'center'
     }
 })

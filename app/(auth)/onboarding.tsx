@@ -7,39 +7,35 @@ import SignUpButtons from "@/components/SignUpButtons";
 
 export default function App(){
     return(
-        <View>
-            <SafeAreaView>
-                <ScrollView contentContainerStyle={{height:'100%'}}>
-                <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
                     <Image  source={require("../../assets/images/welcome.gif")} 
                         style={styles.image} 
                         contentFit="contain"
                      />
                     <Text className="text-3xl font-kbold mt-10">Welcome to MyApp</Text> 
-                    <Text className="text-lg font-klight mt-5">The app for everyone</Text>  
+                    <Text className="text-lg font-klight mt-5">The app for everyone</Text>      
 
-                    <SignUpButtons 
-                        title="CREATE YOUR ACCOUNT"
-                        handlePress={()=>router.push('/signup')}    
-                        containerStyles = "w-96 bg-primary mt-44"
-                        textStyles = "text-white font-ksemibold"
-                        opacity={0.7}
-                    />
-                    <SignUpButtons 
-                        title="LOG INTO YOUR ACCOUNT"
-                        handlePress={()=>{router.push('/')}}    
-                        containerStyles = "w-96 mt-3 border"
-                        textStyles = "font-ksemibold"
-                        opacity={0.3}
-                    />
-                </View>
-                </ScrollView>
-            </SafeAreaView>
+                    <View className="w-full px-4">
+                        <SignUpButtons
+                            title="CREATE YOUR ACCOUNT"
+                            handlePress={()=>router.push('/signup')}    
+                            containerStyles = "bg-primary mt-44"
+                            textStyles = "text-white font-ksemibold"
+                            opacity={0.7}
+                        />
+                        <SignUpButtons 
+                            title="LOG INTO YOUR ACCOUNT"
+                            handlePress={()=>{router.push('/')}}    
+                            containerStyles = "mt-3 border"
+                            textStyles = "font-ksemibold"
+                            opacity={0.3}
+                        />
+                    </View>
             <StatusBar style="auto"/>
-
-        </View>
+        </SafeAreaView>
     )
 }
+
 
 const styles = StyleSheet.create({
     container: {

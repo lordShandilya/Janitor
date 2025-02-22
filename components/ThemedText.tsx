@@ -7,6 +7,7 @@ export type ThemedTextProps = TextProps & {
   lightColor?: string; // You can manually pass a color that you want to be rendered when light theme else pass undefined
   darkColor?: string; // You can manually pass a color that you want to be rendered when dark theme else pass undefined
   type?: keyof typeof themedTypeStyle; // Choose a type from the given types in themedTypeStyle.
+  classNative?: string
 }
 
 export function ThemedText({
@@ -14,12 +15,14 @@ export function ThemedText({
   lightColor,
   darkColor,
   type = 'default',
+  classNative,
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')
 
   return (
     <Text
+      className={classNative}
       style={[
         { color },
         themedTypeStyle[type],

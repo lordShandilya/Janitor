@@ -5,9 +5,11 @@ import MenuScroller from "@/components/MenuScrolller";
 import DropDown from "@/components/DropDown";
 import { BackButton } from "@/components/BackButton";
 import { useRouter } from "expo-router";
+import { useJanitorStore } from "@/utils/Store";
 
 export default function Menu() {
   const router = useRouter();
+  const balance = useJanitorStore(state => state.coupons.balance)
 
   const breakfast = [
     "Aalu chana",
@@ -53,7 +55,11 @@ export default function Menu() {
     <View className="w-full bg-white h-full justify-center items-center">
       
       <BackButton light="#0066F6" dark="#0066F6" onPress={() => router.back()} style={{marginLeft: 30, alignSelf: 'flex-start'}}/>
-
+      <View >
+        <Text className="text-blue-500 font-semibold font-poppins-medium text-lg">
+          Coupon Balance: {balance}
+        </Text>
+      </View>
       <View className=" my-8 z-10"> 
 
         <DropDown/>
