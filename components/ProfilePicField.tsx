@@ -19,8 +19,7 @@ export function ProfilePicField({ profile_pic, style }: ProfilePicFieldProps) {
             {/* Optional: Add an Image if `profile_pic` exists */}
             {pfp ? (
                 <Image
-                    resizeMode="contain"
-                    source={require('@/assets/images/panda.jpg')}
+                    source={{uri:"https://images.unsplash.com/photo-1525382455947-f319bc05fb35?q=80&w=2096&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}}
                     style={StyleSheet.absoluteFillObject} // Fill the container
                 />
             ) : null}

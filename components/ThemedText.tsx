@@ -23,7 +23,7 @@ export function ThemedText({
 
   return (
     <Text
-      className={classNative}
+      className={className}
       style={[
         { color },
         themedTypeStyle[type],
