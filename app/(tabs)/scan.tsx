@@ -6,6 +6,7 @@ import { useRouter } from "expo-router";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useThemeColor } from "@/hooks/useThemedColors";
 import { useJanitorStore } from "@/utils/Store";
+import { useIsFocused } from "@react-navigation/native";
 
 
 
@@ -14,15 +15,16 @@ import { useJanitorStore } from "@/utils/Store";
 export default function Scan() {
     const iconColor = useThemeColor({dark: undefined, light: undefined}, 'icon');
     const router = useRouter();
+    const isFocused = useIsFocused();
 
 
     return(
-        <ThemedView style = {{flex: 1}}>
-            <Pressable onPress={() => router.back()} >
-                <Entypo name="cross" size={30} color={iconColor} style = {styles.backButton}/>
+        <ThemedView style = {styles.container}>
+            <Pressable onPress={() => router.back()} style = {styles.backButton}>
+                <Entypo name="cross" size={30} color={iconColor}/>
             </Pressable>
             
-            <CamScanner style = {styles.container}/>
+            {isFocused && (<CamScanner style = {styles.camContainer}/>)}
 
             <ThemedView style = {styles.bottom}>
                 <ThemedText lightColor="#ECEDEE" type="title">Scan QR</ThemedText>
@@ -36,8 +38,6 @@ const styles = StyleSheet.create({
     bottom: {
         position: 'absolute',
         bottom: 0,
-        right: 0,
-        left: 0,
         backgroundColor: '#0066F6',
         alignItems: 'center',
         justifyContent: 'center',
@@ -46,14 +46,19 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40
     },
-    container: {
+    camContainer: {
         marginTop: 100,
         
     },
     backButton: {
-        margin: 30,
-        position: 'absolute'
+        position: 'absolute',
+        margin: 60,
+        transform: [{translateX: -170}] 
 
     },
+    container: {
+        flex: 1,
+        alignItems: 'center'
+    }
 })
 

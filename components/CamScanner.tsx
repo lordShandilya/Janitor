@@ -1,5 +1,5 @@
 import { BarcodeScanningResult, CameraType, CameraView, useCameraPermissions } from "expo-camera";
-import { useEffect, useState } from "react"
+import { useCallback,   useEffect, useState } from "react"
 import { ThemedView } from "./ThemedView";
 import { ThemedText } from "./ThemedText";
 import { Alert, Button, Pressable, StyleSheet, type ViewProps } from "react-native";
@@ -8,7 +8,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useThemeColor } from "@/hooks/useThemedColors";
 import * as ImagePicker from "expo-image-picker";
-
+import { useFocusEffect } from "expo-router";
 export default function CamScanner({ style }: ViewProps) {
     const [permission, requestPermission] = useCameraPermissions();
     const [facing, setFacing] = useState<CameraType>('back');
@@ -30,9 +30,11 @@ export default function CamScanner({ style }: ViewProps) {
         }
     }
 
-    useEffect(() => {
-        requestPermission();
-    },[]);
+    useFocusEffect(
+        useCallback(() => {
+            requestPermission();
+        },[])
+    );
 
     if(!permission) {
         return <ThemedView style = {styles.container}>
@@ -66,6 +68,9 @@ export default function CamScanner({ style }: ViewProps) {
             <CameraView 
                 facing={facing}
                 style = {styles.camera}
+                barcodeScannerSettings={{
+                    barcodeTypes: ['qr']
+                }}
                 onBarcodeScanned={onQrScan}
                 enableTorch={torch}
             >

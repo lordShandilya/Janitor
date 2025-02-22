@@ -36,7 +36,7 @@ export const useJanitorStore = create<StoreState>()((set) => ({
     },
     user: {
         info: {
-            name: '',
+            name: 'Vishal',
             roll: null,
             email: '',
             phone: null,
