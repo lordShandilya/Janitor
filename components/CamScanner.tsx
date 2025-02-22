@@ -9,6 +9,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import * as ImagePicker from "expo-image-picker";
 import { useFocusEffect } from "expo-router";
 import { View, Text } from "react-native";
+import { horizontalScale, verticalScale } from "@/utils/Scale";
 export default function CamScanner({ style }: ViewProps) {
 
     const [permission, requestPermission] = useCameraPermissions();
@@ -101,18 +102,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     camera: {
-        width: 330,
-        height: 330,
+        width: horizontalScale(330),
+        height: verticalScale(330),
         borderRadius: 20,
         alignItems: 'center',
-        marginTop: 100
+        marginTop: verticalScale(100)
     },
     tray: {
         flexDirection: 'row',
-        height: 45,
-        width: 300,
+        height: verticalScale(45),
+        width: horizontalScale(300),
         backgroundColor: '#0066F6',
-        marginTop: 25,
+        marginTop: verticalScale(25),
         borderRadius: 20,
         opacity: 0.4,
         justifyContent: 'center',

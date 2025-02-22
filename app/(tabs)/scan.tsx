@@ -7,7 +7,8 @@ import Entypo from '@expo/vector-icons/Entypo';
 import { useThemeColor } from "@/hooks/useThemedColors";
 import { useJanitorStore } from "@/utils/Store";
 import { useIsFocused } from "@react-navigation/native";
-
+import { View } from "react-native";
+import { horizontalScale, verticalScale } from "@/utils/Scale";
 
 
 
@@ -19,7 +20,7 @@ export default function Scan() {
 
 
     return(
-        <ThemedView style = {styles.container}>
+        <View style = {styles.container}>
             <Pressable onPress={() => router.back()} style = {styles.backButton}>
                 <Entypo name="cross" size={30} color={iconColor}/>
             </Pressable>
@@ -29,7 +30,7 @@ export default function Scan() {
             <ThemedView style = {styles.bottom}>
                 <ThemedText lightColor="#ECEDEE" type="title">Scan QR</ThemedText>
             </ThemedView>
-        </ThemedView>
+        </View>
     )
     
 }
@@ -41,8 +42,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#0066F6',
         alignItems: 'center',
         justifyContent: 'center',
-        height: 100,
-        width: 420,
+        height: verticalScale(100),
+        width: horizontalScale(400),
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40
     },

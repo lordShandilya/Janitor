@@ -6,6 +6,8 @@ import { ThemedView } from "@/components/ThemedView"
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useThemeColor } from "@/hooks/useThemedColors"
 import { useJanitorStore } from "@/utils/Store"
+import { horizontalScale, verticalScale } from "@/utils/Scale"
+import { ScrollView } from "react-native"
 
 
 export default function Mess() {
@@ -15,8 +17,8 @@ export default function Mess() {
     
     return (
         
-        <SafeAreaView style = {styles.container}>
-           
+        <SafeAreaView className="flex-1">
+           <ScrollView contentContainerStyle = {styles.container}>
             <View style={[styles.box]}>
             <Text className="font-kregular text-lg text-white mb-3">
                 Coupons remaining
@@ -62,8 +64,8 @@ export default function Mess() {
                 />
                 
             </View>
-        
-        </SafeAreaView>
+            </ScrollView>
+         </SafeAreaView>
     )
 }
 
@@ -79,14 +81,14 @@ const styles = StyleSheet.create({
         margin: 25
     },
     colouredButton: {
-        width: 180,
-        height: 60,
+        width: horizontalScale(180),
+        height: verticalScale(60),
         borderRadius: 7,
         opacity: 0.7
     },
     colourlessButton: {
-        width: 378,
-        height: 66,
+        width: horizontalScale(378),
+        height: verticalScale(66),
         gap: 30,
         borderRadius: 12,
         backgroundColor: 'white',
@@ -98,15 +100,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        // justifyContent: 'center'
+        // justifyContent: 'center',
+        // width: '100%'
     },
     box: {
         gap: 10,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#0066F6',
-        height: 180,
-        width: 382,
+        height: verticalScale(180),
+        width: horizontalScale(382),
         marginTop: 75,
         borderRadius: 10,
 

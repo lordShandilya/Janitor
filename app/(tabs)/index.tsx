@@ -6,6 +6,7 @@ import { RectButton } from "@/components/RectButton";
 import { ThemedView } from "@/components/ThemedView";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
 import { useJanitorStore } from "@/utils/Store";
+import { horizontalScale, verticalScale } from "@/utils/Scale";
 
 export default function Index() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function Index() {
 
     <View style={styles.buttonContainer}>
       <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} route={() => router.push('/(tabs)/scan')}/>
-      <RectButton tag="TAKE LEAVE" backgroundColor="#FFF8F8" darkColor="#000000" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
+      <RectButton tag="TAKE LEAVE" backgroundColor="#00cccc" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
       <Link href="/(auth)/onboarding" className="text-primary">On Boarding Page</Link>
     </View>
     </View>
@@ -35,7 +36,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 8,
     marginTop: 70,
-    transform: [{translateX: -80}]
+    transform: [{translateX: -80}],
+    width: horizontalScale(160),
+    padding: 10
   },
   stepContainer: {
     gap: 8,
@@ -49,13 +52,14 @@ const styles = StyleSheet.create({
     gap: 40
   },
   button: {
-    width: 250,
-    height: 40,
+    width: horizontalScale(250),
+    height: verticalScale(40),
     borderRadius: 10,
   },
   container: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
   }
   
 });
