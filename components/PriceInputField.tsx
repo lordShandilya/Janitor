@@ -1,6 +1,4 @@
 import { View, Text, TextInput, StyleSheet, Alert, NativeSyntheticEvent, TextInputSubmitEditingEventData } from "react-native";
-import { ThemedText } from "./ThemedText";
-import { ThemedView } from "./ThemedView";
 import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect } from "expo-router";
 import { useJanitorStore } from "@/utils/Store";

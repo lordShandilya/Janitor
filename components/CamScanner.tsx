@@ -15,7 +15,9 @@ export default function CamScanner({ style }: ViewProps) {
     const [permission, requestPermission] = useCameraPermissions();
     const [facing, setFacing] = useState<CameraType>('back');
     const [torch, setTorch] = useState<boolean>(false);
-    const iconColor = '#FFFFFF';
+    const [icon1Color, setIcon1Color] = useState<string>('#FFFFFF')
+    const [icon2Color, setIcon2Color] = useState<string>('#FFFFFF')
+    const [icon3Color, setIcon3Color] = useState<string>('#FFFFFF')
 
 
     const PickImage = async () => {
@@ -78,13 +80,19 @@ export default function CamScanner({ style }: ViewProps) {
             >
                 <ThemedView style = {styles.tray}>
                 <Pressable onPress={PickImage}>
-                    <FontAwesome name="photo" size={20} color={iconColor} />
+                    <FontAwesome name="photo" size={20} color={icon1Color} />
                 </Pressable>
-                <Pressable onPress={() => {setTorch(prev => !prev)}}>
-                    <MaterialIcons name="electric-bolt" size={24} color={iconColor} />
+                <Pressable onPress={() => {
+                    icon2Color === '#FFFFFF' ? setIcon2Color('yellow') : setIcon2Color('#FFFFFF')
+                    setTorch(prev => !prev)
+                }}>
+                    <MaterialIcons name="electric-bolt" size={24} color={icon2Color} />
                 </Pressable>
-                <Pressable onPress={() => {facing === 'back' ? setFacing('front') : setFacing('back')}}>
-                    <Ionicons name="camera-reverse" size={24} color={iconColor} />
+                <Pressable onPress={() => {
+                    facing === 'back' ? setFacing('front') : setFacing('back')
+                    icon3Color === '#FFFFFF' ? setIcon3Color('green') : setIcon3Color('#FFFFFF')
+                }}>
+                    <Ionicons name="camera-reverse" size={24} color={icon3Color} />
                 </Pressable>
                 </ThemedView>
             </CameraView>
