@@ -24,7 +24,7 @@ export default function Index() {
     <View style={styles.buttonContainer}>
       <RectButton tag="GATE ENTRY/EXIT" backgroundColor="#0066F6" style = {styles.button} route={() => router.push('/(tabs)/scan')}/>
       <RectButton tag="TAKE LEAVE" backgroundColor="#00cccc" style = {styles.button} route={()=> Alert.alert('Under Development')}/>
-      <Link href="/(auth)/onboarding" className="text-primary">On Boarding Page</Link>
+      
     </View>
     </View>
    

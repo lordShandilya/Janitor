@@ -6,6 +6,8 @@ import FormField from '@/components/FormField';
 import SignUpButtons from "@/components/SignUpButtons";
 import { Link, router } from 'expo-router';
 import { BackButton } from "@/components/BackButton";
+import { loginService } from '@/utils/auth';
+import * as SecureStore from "expo-secure-store";
 
 const SignIn = () => {
   
@@ -18,9 +20,14 @@ const SignIn = () => {
     setphonenumber(truncatedText);
   };
 
-  // const handleSignUp = () => {
-  //   
-  // };
+  const handleSignIn = async () => {
+    const {accessToken, refreshToken} = loginService({ roll: parseInt(phonenumber), password });
+    if(accessToken && refreshToken) {
+      await SecureStore.setItemAsync("accessToken", accessToken);
+      await SecureStore.setItemAsync("refreshToken", refreshToken);
+      router.push('/');
+    }
+  };
 
   return (
     <SafeAreaView className=" bg-white h-full">

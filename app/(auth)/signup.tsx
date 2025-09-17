@@ -6,9 +6,12 @@ import FormField from '@/components/FormField';
 import SignUpButtons from "@/components/SignUpButtons";
 import { Link, router } from 'expo-router';
 import { BackButton } from "@/components/BackButton";
+import { signupService } from '@/utils/auth';
 
 const SignUp = () => {
   const [name,setName] = useState('');
+  const [roll, setRoll] = useState();
+  const [email, setEmail] = useState('');
   const [phonenumber, setphonenumber] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -28,7 +31,10 @@ const SignUp = () => {
       Alert.alert('Error', 'Phone number must be 10 digits.');
       return;
     }
-    router.push('/verify');
+
+    signupService({ roll: roll!, name, email, contact: parseInt(phonenumber), password });
+
+    router.push('/signin');
   };
   return (
     <SafeAreaView className=" bg-white h-full">
@@ -47,12 +53,20 @@ const SignUp = () => {
                     keyType="default"
                 />
                 <FormField 
-                    title="Phone Number"
-                    value = {phonenumber}
-                    handleChangeText = {handlePhoneNumberChange}
-                    otherStyles="mt-7"
+                    title="Roll Number"
+                    value = {roll}
+                    handleChangeText = {setRoll}
+                    otherStyles="mt-10"
                     hidden = {false}
                     keyType="numeric"
+                />
+                <FormField
+                    title="Email"
+                    value={email}
+                    handleChangeText={setEmail}
+                    otherStyles="mt-7"
+                    hidden = {false}
+                    keyType="default"
                 />
                 <FormField 
                     title="Password"
